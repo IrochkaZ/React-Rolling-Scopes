@@ -39,7 +39,16 @@ export default class App extends React.Component {
       },
 
     };
+    // this.changeClass = this.changeClass.bind(this);
+    this.changeState = (st) => {
+      this.setState({ st });
+    };
   }
+
+  /* changeClass(event) {
+    this.setState({ term: });
+  } */
+
 
   render() {
     const { term } = this.state.dataCalc;
@@ -51,7 +60,7 @@ export default class App extends React.Component {
               <Tabs defaultActiveKey="loan" transition={false} id="noanim-tab-example">
                 <Tab eventKey="loan" title="Loan">
                   Loan
-                  <Month term = {term}/>
+                  <Month term = {term} cb = {this.changeState}/>
                   <Input text ="Trade in value" value ="$"/>
                   <Input text = "Down Payment" value ="$"/>
                   <CreditScore/>
