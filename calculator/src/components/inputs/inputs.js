@@ -3,10 +3,11 @@ import InputButton from '../input-button/index';
 import './inputs.css';
 
 export default function Input(props) {
+  const { value, text } = props;
   return (
     <div>
-      <p>{props.text}</p>
-      <InputButton/>
+      <p>{ text }</p>
+      <InputButton value ={value}/>
     </div>
   );
 }

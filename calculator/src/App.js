@@ -5,6 +5,8 @@ import {
 } from 'react-bootstrap';
 import Month from './components/month/index';
 import Input from './components/inputs/index';
+import CreditScore from './components/creadit-score/index';
+
 
 export default class App extends React.Component {
   constructor(props) {
@@ -13,7 +15,7 @@ export default class App extends React.Component {
       dataCalc: {
         tradeIn: 0,
         downPayment: 0,
-        term: 0,
+        term: 24,
         creditScore: 0,
         apr: 0,
         mileage: 0,
@@ -40,6 +42,7 @@ export default class App extends React.Component {
   }
 
   render() {
+    const { term } = this.state.dataCalc;
     return (
       <div className='wrapper'>
         <Container>
@@ -48,8 +51,11 @@ export default class App extends React.Component {
               <Tabs defaultActiveKey="loan" transition={false} id="noanim-tab-example">
                 <Tab eventKey="loan" title="Loan">
                   Loan
-                  <Month/>
-                  <Input text ="Trade in value"/>
+                  <Month term = {term}/>
+                  <Input text ="Trade in value" value ="$"/>
+                  <Input text = "Down Payment" value ="$"/>
+                  <CreditScore/>
+                  <Input text = "Estimeted APR" value ="%"/>
                 </Tab>
                 <Tab eventKey="lease" title="Lease">
                   Lease

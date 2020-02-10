@@ -1,0 +1,14 @@
+.input_number {
+  padding-left:20px;
+}
+
+.icon{
+  position:absolute;
+  left:5px;
+  color: coral;
+  font-weight: 800;
+}
+
+.wrapper-but {
+  position:relative;
+}
