@@ -8,6 +8,7 @@ import Input from './components/inputs/index';
 import CreditScore from './components/creadit-score/index';
 import PostCode from './components/post-code/index';
 import Select from './components/select/index';
+import InfoCard from './components/info-card/index';
 
 
 export default class App extends React.Component {
@@ -76,13 +77,13 @@ export default class App extends React.Component {
                   <Input text ="Trade in value" value ="$"/>
                   <Input text = "Down Payment" value ="$"/>
                   <PostCode text ="Enter Post Code"/>
-                  <Select text = "Terms" info={selectTerms} defaultValue ={termSecond} />
-                  <Select text = "Mileages" info={selectMileages} defaultValue ={mileage} />
-                  <Select text = "Credit Score" info={selectCreditScore} defaultValue ={creditScore}/>
+                  <Select text = "Terms" info={selectTerms} defaultItem ={termSecond} />
+                  <Select text = "Mileages" info={selectMileages} defaultItem ={mileage} />
+                  <Select text = "Credit Score" info={selectCreditScore} defaultItem ={creditScore}/>
                 </Tab>
               </Tabs>
             </Col>
-            <Col sm={6}>sm=6</Col>
+            <Col sm={6}><InfoCard/></Col>
           </Row>
         </Container>
       </div>

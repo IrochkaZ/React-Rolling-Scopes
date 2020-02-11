@@ -73,6 +73,17 @@ module.exports = {
       },
 
       {
+        type: 'javascript/auto',
+        test: /\.json$/,
+        use: {
+          loader: 'json-loader',
+          options: {
+            name: 'assets/data',
+          },
+        },
+      },
+
+      {
         test: /\.(woff|woff2|ttf|otf|eot)$/,
         use: [
           {
