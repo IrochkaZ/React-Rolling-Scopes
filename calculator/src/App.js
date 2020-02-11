@@ -6,6 +6,8 @@ import {
 import Month from './components/month/index';
 import Input from './components/inputs/index';
 import CreditScore from './components/creadit-score/index';
+import PostCode from './components/post-code/index';
+import Select from './components/select/index';
 
 
 export default class App extends React.Component {
@@ -16,9 +18,10 @@ export default class App extends React.Component {
         tradeIn: 0,
         downPayment: 0,
         term: 24,
-        creditScore: 0,
+        termSecond: 36,
+        creditScore: 750,
         apr: 0,
-        mileage: 0,
+        mileage: 12000,
         loan: 0,
         lease: 0,
       },
@@ -39,19 +42,20 @@ export default class App extends React.Component {
       },
 
     };
-    // this.changeClass = this.changeClass.bind(this);
+
     this.changeState = (st) => {
       this.setState({ st });
     };
   }
 
-  /* changeClass(event) {
-    this.setState({ term: });
-  } */
-
 
   render() {
-    const { term } = this.state.dataCalc;
+    const {
+      term, termSecond, mileage, creditScore,
+    } = this.state.dataCalc;
+    const selectTerms = [24, 36, 48];
+    const selectMileages = [10000, 12000, 15000];
+    const selectCreditScore = [600, 650, 700, 750, 800, 850, 900];
     return (
       <div className='wrapper'>
         <Container>
@@ -60,6 +64,7 @@ export default class App extends React.Component {
               <Tabs defaultActiveKey="loan" transition={false} id="noanim-tab-example">
                 <Tab eventKey="loan" title="Loan">
                   Loan
+                  <PostCode text ="Enter Post Code"/>
                   <Month term = {term} cb = {this.changeState}/>
                   <Input text ="Trade in value" value ="$"/>
                   <Input text = "Down Payment" value ="$"/>
@@ -68,6 +73,12 @@ export default class App extends React.Component {
                 </Tab>
                 <Tab eventKey="lease" title="Lease">
                   Lease
+                  <Input text ="Trade in value" value ="$"/>
+                  <Input text = "Down Payment" value ="$"/>
+                  <PostCode text ="Enter Post Code"/>
+                  <Select text = "Terms" info={selectTerms} defaultValue ={termSecond} />
+                  <Select text = "Mileages" info={selectMileages} defaultValue ={mileage} />
+                  <Select text = "Credit Score" info={selectCreditScore} defaultValue ={creditScore}/>
                 </Tab>
               </Tabs>
             </Col>

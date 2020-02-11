@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import {
+  Button,
+} from 'react-bootstrap';
 import './buttons.css';
 
 export default class Buttons extends Component {
@@ -17,8 +20,8 @@ export default class Buttons extends Component {
     const { info, currentValue } = this.props;
     const listItems = info.map((number) => {
       const className = (currentValue === number) ? 'menu activeItem' : 'menu';
-      return <button
-      onClick = {this.buttonOnClick} className ={className} key={number}>{number}</button>;
+      return <Button variant="primary"
+      onClick = {this.buttonOnClick} className ={className} key={number}>{number}</Button>;
     });
     return (
     <div>{listItems}</div>

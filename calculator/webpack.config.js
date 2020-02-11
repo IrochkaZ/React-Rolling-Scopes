@@ -87,7 +87,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      title: 'New React App Template',
+      title: 'Calculator',
       filename: 'index.html',
       favicon: path.resolve(__dirname, 'src/assets/img/favicon.ico'),
     }),

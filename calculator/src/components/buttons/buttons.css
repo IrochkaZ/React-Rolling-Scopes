@@ -1,3 +1,8 @@
 .activeItem{
-  background-color: darkcyan;
+  background-color: #007bff;
+}
+
+.menu{
+  margin: 10px;
+  padding: 20px;
 }
