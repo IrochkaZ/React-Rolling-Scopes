@@ -21,8 +21,8 @@ export default class Select extends Component {
           {item} </option>);
 
     return (
-      <div>
-        <p>{text}</p>
+      <div className = "select_wrapper">
+        <p className = 'text'>{text}</p>
         <select value={defaultItem} onChange={this.handleChange} >{optionsItem}</select>
       </div>
     );

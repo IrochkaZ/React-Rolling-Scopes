@@ -6,7 +6,7 @@ export default class InfoCard extends Component {
     const { decription, data } = this.props;
     const infoCardDesriptionList = decription.map((item) => <div key ={item}>{item}</div>);
     const infoCardList = Object.values(data)
-      .map((item) => <div key={ Math.floor(Math.random() * 1000)}>{ item }</div>);
+      .map((item) => <div key={ Math.random().toString(36).substr(2, 9)}>{ item }</div>);
     return (
      <div className='info-card'>
       <div className = 'info-card_description'>{infoCardDesriptionList}</div>

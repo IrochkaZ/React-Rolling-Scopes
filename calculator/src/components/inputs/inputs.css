@@ -12,3 +12,7 @@
 .wrapper-but {
   position:relative;
 }
+
+.text{
+  font-weight: 600;
+}

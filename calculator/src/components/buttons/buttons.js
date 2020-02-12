@@ -23,8 +23,8 @@ export default class Buttons extends Component {
       className ={className} key={number} >{number}</Button>;
     });
     return (
-    <div>
-      <p>{text}</p>
+    <div className= 'button_wraper'>
+      <p className= 'text'>{text}</p>
       {listItems}
       </div>
     );

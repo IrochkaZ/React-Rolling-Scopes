@@ -1,0 +1,25 @@
+
+
+.header{
+  margin: 20px auto;
+  text-align: center;
+}
+
+.wrapper{
+  color: #555;
+  background-color: #f6f8fa;
+}
+
+.title{
+  background-color: #f6f8fa !important;
+}
+
+.button_wraper, .input_wrapper, .select_wrapper{
+  padding: 15px;
+}
+
+.description_app{
+  font-size: 20px;
+  padding: 15px;
+  text-align: center;
+}
