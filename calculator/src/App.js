@@ -7,7 +7,6 @@ import Buttons from './components/buttons/index';
 import Input from './components/inputs/index';
 import Select from './components/select/index';
 import InfoCard from './components/info-card/index';
-import bmwX6 from './assets/data/bmwX6.json';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import './App.css';
 
@@ -87,14 +86,16 @@ export default class App extends React.Component {
         this.setState(dataCalc);
       });
 
-    Promise.resolve(bmwX6).then((data) => {
-      vendorData.msrp = `${data.msrp} $`;
-      vendorData.vehicle = data.vehicle;
-      vendorData.name = data.name;
-      vendorData.phone = data.phone;
-      vendorData.rating = data.rating;
-      this.setState(vendorData);
-    });
+    fetch('https://irochkaz.github.io/RRS-Netlify/data/bmwX6.json')
+      .then((res) => res.json())
+      .then((data) => {
+        vendorData.msrp = `${data.msrp} $`;
+        vendorData.vehicle = data.vehicle;
+        vendorData.name = data.name;
+        vendorData.phone = data.phone;
+        vendorData.rating = data.rating;
+        this.setState(vendorData);
+      });
   }
 
 
