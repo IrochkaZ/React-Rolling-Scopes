@@ -7,24 +7,26 @@ import './buttons.css';
 export default class Buttons extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      active: null,
-    };
-    this.buttonOnClick = (ev) => {
-      const { changeFunc } = this.props;
-      changeFunc({ term: ev.target.innerText });
+    this.buttonOnClick = (event) => {
+      const { data, stateKey, cb } = this.props;
+      const newValue = 1 * event.target.innerText;
+      data[stateKey] = newValue;
+      cb({ dataCalc: data });
     };
   }
 
   render() {
-    const { info, currentValue } = this.props;
+    const { info, text, defaultItem } = this.props;
     const listItems = info.map((number) => {
-      const className = (currentValue === number) ? 'menu activeItem' : 'menu';
-      return <Button variant="primary"
-      onClick = {this.buttonOnClick} className ={className} key={number}>{number}</Button>;
+      const className = (defaultItem === number) ? 'menu activeItem' : 'menu';
+      return <Button variant="primary" onClick={ this.buttonOnClick }
+      className ={className} key={number} >{number}</Button>;
     });
     return (
-    <div>{listItems}</div>
+    <div>
+      <p>{text}</p>
+      {listItems}
+      </div>
     );
   }
 }

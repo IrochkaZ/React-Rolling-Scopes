@@ -1,0 +1,8 @@
+.info-card{
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-card_description{
+  font-weight: bold;
+}
