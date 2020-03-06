@@ -4,6 +4,7 @@ import { Table } from 'react-bootstrap';
 import { connect } from 'react-redux'
 import fetchAllItemsFromServer from '../utils/fetch.js'
 import { strCut } from '../utils/common'; 
+import Loader from './loader/Loader.js'
 import './styles/Table.css'
 class Tables extends Component {
   componentDidMount() {
@@ -12,7 +13,9 @@ class Tables extends Component {
 
 
   render(){
-    
+    if (this.props.dataTable.isLoading) {
+      return <Loader />;
+  }
     const { tableHead } = this.props.headerTable;
     const { data } =  this.props.dataTable.data;
     let tHItem;
@@ -31,7 +34,8 @@ class Tables extends Component {
       </tr> );
     }
    
-    return (<Table striped bordered hover size="10" responsive>
+    return (
+    <Table striped bordered hover size="10" responsive>
     <thead>
       <tr>
         {tHItem}
