@@ -1,5 +1,5 @@
 export const initialState = {
-  tableHead: ['id', 'Frirst Name', 'Last Name', 'email', 'Phone', 'City', 'Post Code'], 
+  tableHead: ['avatar', 'Frirst Name', 'Last Name', 'Car year', 'Gender', 'Own Car', 'Date', 'Credit Card'], 
 }
 
 export function headerTable(state = initialState) {

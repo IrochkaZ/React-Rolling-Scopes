@@ -6,3 +6,4 @@ export const rootReducer = combineReducers({
   headerTable: headerTable,
   dataTable: dataTable
 })
+
