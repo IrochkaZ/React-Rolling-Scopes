@@ -1,22 +1,4 @@
-
-function fetchPostsRequest(){
-  return {
-    type: "FETCH_ALL_ITEMS"
-  }
-}
-
-function fetchPostsSuccess(payload) {
-  return {
-    type: "FETCH_ALL_ITEMS_SUCCESS",
-    payload
-  }
-}
-
-function fetchPostsError() {
-  return {
-    type: "FETCH_ALL_ITEMS_ERROR"
-  }
-}
+import {fetchPostsRequest, fetchPostsSuccess,fetchPostsError } from '../actions_creator/action_creator'
 
 export default function fetchAllItemsFromServer() {
   return (dispatch) => {

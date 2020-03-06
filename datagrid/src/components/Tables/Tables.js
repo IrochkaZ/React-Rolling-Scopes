@@ -2,22 +2,23 @@ import React, { Component }from 'react';
 import PropTypes from 'prop-types'
 import { Table } from 'react-bootstrap';
 import { connect } from 'react-redux'
-import fetchAllItemsFromServer from '../utils/fetch.js'
-import { strCut } from '../utils/common'; 
-import Loader from './loader/Loader.js'
+import fetchAllItemsFromServer from '../../utils/fetch.js'
+import { strCut } from '../../utils/common'; 
+import Loader from '../Loader/Loader.js'
 import './styles/Table.css'
 class Tables extends Component {
+  
   componentDidMount() {
     this.props.fetchAllItemsFromServer();
  }
 
-
   render(){
-    if (this.props.dataTable.isLoading) {
+    const { dataTable,headerTable } = this.props;
+    if (dataTable.isLoading) {
       return <Loader />;
   }
-    const { tableHead } = this.props.headerTable;
-    const { data } =  this.props.dataTable.data;
+    const { tableHead } = headerTable;
+    const { data } =  dataTable.data;
     let tHItem;
     let trItem;
     if (data) {
@@ -33,7 +34,6 @@ class Tables extends Component {
       <td className = "credit_card">{`${i.credit_card}`.toLocaleString('en-US')}</td>
       </tr> );
     }
-   
     return (
     <Table striped bordered hover size="10" responsive>
     <thead>
@@ -59,6 +59,7 @@ const tableStateToProps = store => {
 
 
 Tables.propTypes = {
-  tableHead: PropTypes.array
+  tableHead: PropTypes.array,
+  data: PropTypes.array
 }
 export default connect(tableStateToProps, {fetchAllItemsFromServer})(Tables)
