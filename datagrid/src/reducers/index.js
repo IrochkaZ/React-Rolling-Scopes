@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import {headerTable } from './headerTable'
-import {dataTable} from './dataTable'
+import {headerTable } from './reducerHeaderTable'
+import {dataTable} from './reducerDataTable'
 
 export const rootReducer = combineReducers({
   headerTable: headerTable,

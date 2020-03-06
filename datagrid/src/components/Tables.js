@@ -4,9 +4,9 @@ import { Table } from 'react-bootstrap';
 import { connect } from 'react-redux'
 import fetchAllItemsFromServer from '../utils/fetch.js'
 class Tables extends Component {
-//   componentDidMount() {
-//     fetch();
-//  }
+  componentDidMount() {
+    this.props.fetchAllItemsFromServer();
+ }
 
   render(){
     console.log(this.props);
@@ -50,7 +50,13 @@ const tableStateToProps = store => {
   }
 }
 
+// const tableDispatchToProps = dispatch => {
+//   return {
+//    dataTable: 
+//   }
+// }
+
 Tables.propTypes = {
   tableHead: PropTypes.array
 }
-export default connect(tableStateToProps, fetchAllItemsFromServer)(Tables)
+export default connect(tableStateToProps, {fetchAllItemsFromServer})(Tables)

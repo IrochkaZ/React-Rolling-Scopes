@@ -1,13 +1,39 @@
-const FETCH_ALL_ITEMS = 'FETCH_ALL_ITEMS'
-const FETCH_ALL_ITEMS_SUCCESS = 'FETCH_ALL_ITEMS_SUCCESS'
-const FETCH_ALL_ITEMS_ERROR = 'FETCH_ALL_ITEMS_ERROR'
+
+function fetchPostsRequest(){
+  return {
+    type: "FETCH_ALL_ITEMS"
+  }
+}
+
+function fetchPostsSuccess(payload) {
+  return {
+    type: "FETCH_ALL_ITEMS_SUCCESS",
+    payload
+  }
+}
+
+function fetchPostsError() {
+  return {
+    type: "FETCH_ALL_ITEMS_ERROR"
+  }
+}
 
 export default function fetchAllItemsFromServer() {
-  return (dispatch, getState) => {
-    dispatch({type: FETCH_ALL_ITEMS})
-    fetch('https://api.myjson.com/bins/7mz4q')
-      .then(res => res.toJSON())
-      .then(items => dispatch({type: FETCH_ALL_ITEMS_SUCCESS, payload: items}))
-      .catch(errors => dispatch({type: FETCH_ALL_ITEMS_ERROR, errors: errors}))
-  }
+  return (dispatch) => {
+  dispatch(fetchPostsRequest());
+  return fetchPosts().then(([response, json]) =>{
+      if(response.status === 200){
+      dispatch(fetchPostsSuccess(json))
+    }
+    else{
+      dispatch(fetchPostsError())
+    }
+  })
+}
+}
+
+function fetchPosts() {
+const URL = "https://api.myjson.com/bins/7mz4q";
+return fetch(URL, { method: 'GET'})
+   .then( response => Promise.all([response, response.json()]));
 }
