@@ -1,0 +1,11 @@
+.last_name{
+    white-space: nowrap;
+    overflow: hidden; 
+    padding: 5px !important; 
+    text-overflow: ellipsis;
+    width: 10px !important;
+}
+
+.credit_card{
+  text-align: right;
+}
