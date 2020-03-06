@@ -33,7 +33,7 @@ export default function fetchAllItemsFromServer() {
 }
 
 function fetchPosts() {
-const URL = "https://api.myjson.com/bins/7mz4q";
+const URL = "https://api.jsonbin.io/b/5e621fc8baf60366f0e4ad43";
 return fetch(URL, { method: 'GET'})
    .then( response => Promise.all([response, response.json()]));
 }

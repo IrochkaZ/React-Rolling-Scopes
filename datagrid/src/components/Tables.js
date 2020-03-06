@@ -9,9 +9,24 @@ class Tables extends Component {
  }
 
   render(){
-    console.log(this.props);
     const { tableHead } = this.props.headerTable;
-    const tHItem = tableHead.map((item) => <th key={ item }>{item}</th>)
+    const { data } =  this.props.dataTable.data;
+    let tHItem;
+    let trItem;
+    if (data) {
+    tHItem = tableHead.map((item) => <th key={ item }>{item}</th>)
+    trItem = data.map((i)=> <tr>
+      <td>{i.id}</td>
+      <td>{i.first_name}</td>
+      <td>{i.last_name}</td>
+      <td>{i.car_year}</td>
+      <td>{i.gender}</td>
+      <td>{i.date}</td>
+      <td>{i.credit_type}</td>
+      <td>{i.credit_card}</td>
+      </tr> );
+    }
+   
     return (<Table striped bordered hover size="sm">
     <thead>
       <tr>
@@ -19,23 +34,7 @@ class Tables extends Component {
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td colSpan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
+       {trItem}
     </tbody>
   </Table>
   )
@@ -50,11 +49,6 @@ const tableStateToProps = store => {
   }
 }
 
-// const tableDispatchToProps = dispatch => {
-//   return {
-//    dataTable: 
-//   }
-// }
 
 Tables.propTypes = {
   tableHead: PropTypes.array
