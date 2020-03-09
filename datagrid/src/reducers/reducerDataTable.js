@@ -4,7 +4,8 @@ export const initialState = {
   sort: true,
   filter: true,
   errors: {},
-  isLoading: false
+  isLoading: false,
+  currentSort: 'up',
 }
 
 export function dataTable(state = initialState, action) {
@@ -14,20 +15,23 @@ export function dataTable(state = initialState, action) {
         isLoading: true,
         sort: false,
         filter: false,
+        currentSort: 'up',
       })
     case 'FETCH_ALL_ITEMS_SUCCESS':
       return Object.assign({}, state, {
         isLoading: false,
         sort: true,
         filter: true,
-        data: action.payload
+        data: action.payload,
+        currentSort: 'up',
       })
     case 'FETCH_ALL_ITEMS_ERROR':
       return Object.assign({}, state, {
         isLoading: false,
         sort: false,
         filter: false,
-        data: action.errors
+        data: action.errors,
+        currentSort: 'up',
       })
     default:
       return state

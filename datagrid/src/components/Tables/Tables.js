@@ -4,29 +4,37 @@ import { Table } from 'react-bootstrap';
 import { connect } from 'react-redux'
 import fetchAllItemsFromServer from '../../utils/fetch.js'
 import { strCut } from '../../utils/common'; 
-import Loader from '../Loader/Loader.js'
+import Loader from '../loader/Loader.js'
 import './styles/Table.css'
+
 class Tables extends Component {
-  
+
   componentDidMount() {
     this.props.fetchAllItemsFromServer();
  }
 
   render(){
     const { dataTable,headerTable } = this.props;
-    if (dataTable.isLoading) {
-      return <Loader />;
-  }
+  
     const { tableHead } = headerTable;
-    const { data } =  dataTable.data;
+    const { data, currentSort, isLoading } =  dataTable.data;
+    if (isLoading) {
+      return <Loader />;
+    }
     let tHItem;
     let trItem;
+    
     if (data) {
-    tHItem = tableHead.map((item) => <th key={ item }>{item}</th>)
+    tHItem = tableHead.map((item) => <th key={ item }>{item}
+      <div className ="icons">
+          <i className="active sort-up glyphicon glyphicon-triangle-top"></i>
+          <i className="sort-down glyphicon glyphicon-triangle-bottom"></i>
+      </div>
+    </th>)
     trItem = data.map((i)=> <tr key ={i.id}>
       <td>{i.id}</td>
       <td className = "first_name">{i.first_name}</td>
-      <td className = "last_name" size="3">{strCut(i.last_name)}</td>
+      <td className = "last_name">{strCut(i.last_name)}</td>
       <td>{i.car_year}</td>
       <td>{i.gender}</td>
       <td>{`${i.date}`}</td>
@@ -34,17 +42,26 @@ class Tables extends Component {
       <td className = "credit_card">{`${i.credit_card}`.toLocaleString('en-US')}</td>
       </tr> );
     }
+
     return (
-    <Table striped bordered hover size="10" responsive>
-    <thead>
-      <tr>
+  <div className='table-fixhead'>
+    <Table  className= "responsive-table table"striped bordered hover responsive>
+    <thead >
+      <tr >
         {tHItem}
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <td></td>
+      </tr>
+      <tr>
+      <td></td>
+      </tr>
        {trItem}
     </tbody>
   </Table>
+  </div>
   )
   }
 
@@ -56,7 +73,6 @@ const tableStateToProps = store => {
     dataTable: store.dataTable
   }
 }
-
 
 Tables.propTypes = {
   tableHead: PropTypes.array,
