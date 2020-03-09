@@ -2,8 +2,9 @@ import React, { Component }from 'react';
 import PropTypes from 'prop-types'
 import { Table } from 'react-bootstrap';
 import { connect } from 'react-redux'
-import fetchAllItemsFromServer from '../../utils/fetch.js'
-import { strCut } from '../../utils/common'; 
+import fetchAllItemsFromServer from '../../utils/fetch.js';
+import sortDataTable from '../../utils/sortDataTable.js'
+import { strCut } from '../../utils/common';
 import Loader from '../loader/Loader.js'
 import './styles/Table.css'
 
@@ -14,21 +15,21 @@ class Tables extends Component {
  }
 
   render(){
-    const { dataTable,headerTable } = this.props;
-  
+    console.log(this.props);
+    const { dataTable, headerTable} = this.props;
     const { tableHead } = headerTable;
-    const { data, currentSort, isLoading } =  dataTable.data;
-    if (isLoading) {
+    const { data} =  dataTable.data;
+
+    if (dataTable.isLoading) {
       return <Loader />;
     }
     let tHItem;
     let trItem;
-    
     if (data) {
     tHItem = tableHead.map((item) => <th key={ item }>{item}
       <div className ="icons">
-          <i className="active sort-up glyphicon glyphicon-triangle-top"></i>
-          <i className="sort-down glyphicon glyphicon-triangle-bottom"></i>
+          <i className="sort-up glyphicon glyphicon-triangle-top" onClick = {this.props.sortDataTable.sortUp}></i>
+          <i className="sort-down glyphicon glyphicon-triangle-bottom" onClick = {this.props.sortDataTable.sortDown}></i>
       </div>
     </th>)
     trItem = data.map((i)=> <tr key ={i.id}>
@@ -58,7 +59,7 @@ class Tables extends Component {
       <tr>
       <td></td>
       </tr>
-       {trItem}
+        {trItem}
     </tbody>
   </Table>
   </div>
@@ -70,7 +71,8 @@ class Tables extends Component {
 const tableStateToProps = store => {
   return {
     headerTable: store.headerTable,
-    dataTable: store.dataTable
+    dataTable: store.dataTable,
+    // sortDataTable : store.sortTable,
   }
 }
 
@@ -78,4 +80,4 @@ Tables.propTypes = {
   tableHead: PropTypes.array,
   data: PropTypes.array
 }
-export default connect(tableStateToProps, {fetchAllItemsFromServer})(Tables)
+export default connect(tableStateToProps, {fetchAllItemsFromServer, sortDataTable})(Tables)

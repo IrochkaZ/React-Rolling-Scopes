@@ -5,7 +5,7 @@ export const initialState = {
   filter: true,
   errors: {},
   isLoading: false,
-  currentSort: 'up',
+  currentSort: 'default',
 }
 
 export function dataTable(state = initialState, action) {
@@ -15,7 +15,7 @@ export function dataTable(state = initialState, action) {
         isLoading: true,
         sort: false,
         filter: false,
-        currentSort: 'up',
+        currentSort: 'default',
       })
     case 'FETCH_ALL_ITEMS_SUCCESS':
       return Object.assign({}, state, {
@@ -23,7 +23,7 @@ export function dataTable(state = initialState, action) {
         sort: true,
         filter: true,
         data: action.payload,
-        currentSort: 'up',
+        currentSort: 'default',
       })
     case 'FETCH_ALL_ITEMS_ERROR':
       return Object.assign({}, state, {
@@ -31,11 +31,34 @@ export function dataTable(state = initialState, action) {
         sort: false,
         filter: false,
         data: action.errors,
-        currentSort: 'up',
+        currentSort: 'default',
       })
     default:
       return state
     }
   }
 
+
+export function sortTable (state, action){
+  switch (action.type) {
+    case 'UP':
+        return{
+          ...state,
+          // data: state.data.datafirst_name.map((item)=> item.sort()),
+          currentSort:'up',
+        };
+    case 'DOWN':
+      return{
+        ...state,
+        // data: state.data.data.map((item)=> item.reverse()),
+      };
+    case 'DEFAULT':
+      return{
+        ...state,
+        currentSort:'default',
+      };
+    default:
+    return state;
+  }
+}
 
