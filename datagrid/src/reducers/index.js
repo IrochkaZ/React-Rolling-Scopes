@@ -1,9 +1,10 @@
-import { combineReducers } from 'redux'
-import {headerTable } from './reducerHeaderTable'
-import {dataTable} from './reducerDataTable'
+import {combineReducers} from 'redux';
 
-export const rootReducer = combineReducers({
-  headerTable: headerTable,
-  dataTable: dataTable
-})
+import data from './data';
+import filter from './filter';
+import page from './page';
 
+
+const reducer = combineReducers({data,filter,page});
+
+export default reducer;
