@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './style.css';
 
 export default function Filter(props) {
@@ -8,7 +7,7 @@ export default function Filter(props) {
     return (
         <div className="filter">
             <label>
-            Search the site
+            Search the site:&nbsp;
                 <input type="text" className="search-field" onChange={(e) => {
                     e.preventDefault();
                     onChangeFilter(e.target.value || 'ALL');

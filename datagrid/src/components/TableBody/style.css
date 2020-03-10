@@ -1,4 +1,4 @@
-.Wrapper .pagination {
+.wrapper .pagination {
     padding: 40px 0;
     height: 40px;
     text-align: center;
@@ -16,7 +16,7 @@
     height: 100%;
 } */
 
-.Wrapper .pagination .link-to-table {
+.wrapper .pagination .link-to-table {
     color: black;
     float: left;
     padding: 8px 16px;

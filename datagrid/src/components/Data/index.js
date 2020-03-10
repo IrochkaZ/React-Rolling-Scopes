@@ -5,9 +5,9 @@ import TableWrapper from "../../containers/TableWrapper";
 
 export default function Data() {
     return (
-        <div className={'table'}>
+        <div className='table'>
             <FilterWrapper/>
-            <div className="Wrapper">
+            <div className="wrapper">
                 <TableWrapper/>
             </div>
         </div>
