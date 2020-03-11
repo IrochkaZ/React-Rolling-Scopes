@@ -5,7 +5,6 @@ import './style.css';
 export default function Pagination(props) {
     const pagination = [];
     const {data, onSetPage, filter} = props;
-    console.log(props);
     const filtredSearch = filter.toLowerCase().charAt(0).toUpperCase() + filter.slice(1);
 
     if (data.length > 0) {

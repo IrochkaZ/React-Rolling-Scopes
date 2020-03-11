@@ -4,7 +4,6 @@ function reducer(state = 'ALLDATA', action) {
     switch (action.type) {
         case SET_FILTER:
             return action.filter;
-
         default:
             return state;
     }

@@ -2,6 +2,11 @@ thead th {
     white-space: nowrap;
 }
 
+thead {
+    background-color: #d1ecf1;
+    color: #002752;
+}
+
 thead th {
     padding: 7px 15px;
     margin: 0;

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from "react-dom";
 import './style.css';
 import Portal from "../Portal";
+import { strCut } from '../../utils/utils'
 
 export default function TableBody(props) {
     const {data, page, filter} = props;
@@ -12,7 +13,7 @@ export default function TableBody(props) {
          ? <tr key={data.phone}>
                         <td>{data.id}</td>
                         <td>{data.firstName}</td>
-                        <td>{data.lastName}</td>
+                        <td>{strCut(data.lastName)}</td>
                         <td>{data.email}</td>
                         <td>{data.phone}</td>
                         <td>
@@ -23,7 +24,7 @@ export default function TableBody(props) {
                         </td>
                         <td>{data.description}</td>
                     </tr> : null)
-                : data.filter(data => data.id.toString() === filter || data.id.toString().indexOf(filtrSearch) !== -1 || data.firstName === filter || data.firstName.indexOf(filtrSearch) !== -1 || data.lastName === filter || data.lastName.indexOf(filtrSearch) !== -1 || data.email === filter || data.email.indexOf(filtrSearch) !== -1 || data.phone === filter || data.phone.indexOf(filtrSearch) !== -1 || data.address.streetAddress === filter || data.address.streetAddress.indexOf(filtrSearch) !== -1 || data.address.city === filter || data.address.city.indexOf(filtrSearch) !== -1 || data.address.state === filter || data.address.state.indexOf(filtrSearch) !== -1 || data.address.zip === filter || data.address.zip.indexOf(filtrSearch) !== -1 || data.description === filter || data.description.indexOf(filtrSearch) !== -1)
+                : data.filter(data => data.id.toString().toLowerCase() === filter.toLowerCase() || data.id.toString().indexOf(filtrSearch.toLowerCase()) !== -1 || data.firstName.toLowerCase() === filter.toLowerCase() || data.firstName.indexOf(filtrSearch.toLowerCase()) !== -1 || data.lastName.toLowerCase() === filter.toLowerCase() || data.lastName.indexOf(filtrSearch.toLowerCase()) !== -1 || data.email.toLowerCase() === filter.toLowerCase() || data.email.indexOf(filtrSearch.toLowerCase()) !== -1 || data.phone.toLowerCase() === filter.toLowerCase() || data.phone.indexOf(filtrSearch.toLowerCase()) !== -1 || data.address.streetAddress.toLowerCase() === filter.toLowerCase() || data.address.streetAddress.indexOf(filtrSearch.toLowerCase()) !== -1 || data.address.city.toLowerCase() === filter.toLowerCase() || data.address.city.indexOf(filtrSearch.toLowerCase()) !== -1 || data.address.state.toLowerCase() === filter.toLowerCase() || data.address.state.indexOf(filtrSearch.toLowerCase()) !== -1 || data.address.zip.toLowerCase() === filter.toLowerCase() || data.address.zip.indexOf(filtrSearch.toLowerCase()) !== -1 || data.description.toLowerCase() === filter.toLowerCase() || data.description.indexOf(filtrSearch.toLowerCase()) !== -1)
                     .map((data, index) => (index < 30 * page && index > 30 * page - 30) ?
                         <tr key={data.phone}>
                             <td>{data.id}</td>

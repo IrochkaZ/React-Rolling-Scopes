@@ -1,4 +1,5 @@
 export const SET_FILTER = 'SET_FILTER';
+export const SELECT_CITY = 'SELECT_CITY';
 
 export function setFilter(filter) {
     return {
@@ -6,3 +7,10 @@ export function setFilter(filter) {
         filter
     };
 }
+
+export function selectCity(filter){
+    return{
+       type: SELECT_CITY,
+       filter
+    }
+  }
