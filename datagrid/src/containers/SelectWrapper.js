@@ -7,12 +7,13 @@ import {selectCity} from '../actions/';
 function mapStateToProps(state) {
   return {
       data: state.data,
-      filter: state.filter
+      filter: state.filter,
+      select: state.select
   }
 }
 function mapDispatchToProps(dispatch) {
   return {
-      onSelectCity: filter => dispatch(selectCity(filter))
+      onSelectCity: select => dispatch(selectCity(select))
   }
 }
 

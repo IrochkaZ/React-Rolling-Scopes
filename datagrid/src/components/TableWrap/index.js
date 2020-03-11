@@ -6,7 +6,7 @@ import TableHeadWrapper from "../../containers/TableHeadWrapper";
 import TableBodyWrapper from "../../containers/TableBodyWrapper";
 import PaginationWrapper from "../../containers/PaginationWrapper";
 
-export default function TableWrap(props) {
+export default function TableWrap() {
     return (
         <div>
             <Table  className= "responsive-table table" striped bordered hover responsive>

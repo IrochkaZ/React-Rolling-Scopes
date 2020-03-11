@@ -5,7 +5,8 @@ function mapStateToProps(state) {
     return {
         data: state.data,
         page: state.page,
-        filter: state.filter
+        filter: state.filter,
+        select: state.select
     };
 }
 
