@@ -8,8 +8,7 @@ export default function TableBody(props) {
     console.log(props);
     const {data, page, filter, select} = props;
     const filtrSearch = filter.toLowerCase().charAt(0).toUpperCase() + filter.slice(1);
-    const selectSearch = select.toLowerCase();
-    console.log(selectSearch);
+    console.log(select);
     return (
         < tbody>
         {(data.length > 0) ? (filter === 'ALLDATA') ? data.map((data, index) => (index < 30 * page && index > 30 * page - 30)
@@ -27,7 +26,7 @@ export default function TableBody(props) {
                         </td>
                         <td>{data.description}</td>
                     </tr> : null)
-               : data.filter(data =>  data.address.state.toString().indexOf(selectSearch.toLowerCase()) !== -1 || selectSearch.toLowerCase() === data.address.state.toString().toLowerCase() || data.id.toString().toLowerCase() === filter.toLowerCase() || data.id.toString().indexOf(filtrSearch.toLowerCase()) !== -1 || data.firstName.toLowerCase() === filter.toLowerCase() || data.firstName.indexOf(filtrSearch.toLowerCase()) !== -1 || data.lastName.toLowerCase() === filter.toLowerCase() || data.lastName.indexOf(filtrSearch.toLowerCase()) !== -1 || data.email.toLowerCase() === filter.toLowerCase() || data.email.indexOf(filtrSearch.toLowerCase()) !== -1 || data.phone.toLowerCase() === filter.toLowerCase() || data.phone.indexOf(filtrSearch.toLowerCase()) !== -1 || data.address.streetAddress.toLowerCase() === filter.toLowerCase() || data.address.streetAddress.indexOf(filtrSearch.toLowerCase()) !== -1 || data.address.city.toLowerCase() === filter.toLowerCase() || data.address.city.indexOf(filtrSearch.toLowerCase()) !== -1 || data.address.state.toLowerCase() === filter.toLowerCase() || data.address.state.indexOf(filtrSearch.toLowerCase()) !== -1 || data.address.zip.toLowerCase() === filter.toLowerCase() || data.address.zip.indexOf(filtrSearch.toLowerCase()) !== -1 || data.description.toLowerCase() === filter.toLowerCase() || data.description.indexOf(filtrSearch.toLowerCase()) !== -1)
+               : data.filter(data => data.id.toString().toLowerCase() === filter.toLowerCase() || data.id.toString().indexOf(filtrSearch.toLowerCase()) !== -1 || data.firstName.toLowerCase() === filter.toLowerCase() || data.firstName.indexOf(filtrSearch.toLowerCase()) !== -1 || data.lastName.toLowerCase() === filter.toLowerCase() || data.lastName.indexOf(filtrSearch.toLowerCase()) !== -1 || data.email.toLowerCase() === filter.toLowerCase() || data.email.indexOf(filtrSearch.toLowerCase()) !== -1 || data.phone.toLowerCase() === filter.toLowerCase() || data.phone.indexOf(filtrSearch.toLowerCase()) !== -1 || data.address.streetAddress.toLowerCase() === filter.toLowerCase() || data.address.streetAddress.indexOf(filtrSearch.toLowerCase()) !== -1 || data.address.city.toLowerCase() === filter.toLowerCase() || data.address.city.indexOf(filtrSearch.toLowerCase()) !== -1 || data.address.state.toLowerCase() === filter.toLowerCase() || data.address.state.indexOf(filtrSearch.toLowerCase()) !== -1 || data.address.zip.toLowerCase() === filter.toLowerCase() || data.address.zip.indexOf(filtrSearch.toLowerCase()) !== -1 || data.description.toLowerCase() === filter.toLowerCase() || data.description.indexOf(filtrSearch.toLowerCase()) !== -1)
                     .map((data, index) => (index < 30 * page && index > 30 * page - 30) ?
                         <tr key={data.phone}>
                             <td>{data.id}</td>
