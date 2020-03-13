@@ -8,9 +8,9 @@ export function setFilter(filter) {
     };
 }
 
-export function selectCity(filter){
+export function selectCity(select){
     return{
        type: SELECT_CITY,
-       filter
+       select
     }
   }

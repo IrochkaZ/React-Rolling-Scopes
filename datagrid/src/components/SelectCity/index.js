@@ -13,8 +13,9 @@ export default function SelectCity (props) {
           <select className="custom-select" multiple
           onChange={(e) => {
                     e.preventDefault();
-                    onSelectCity(e.target.value)}}>{options}</select>
-          <button onClick = {(e)=>{onSelectCity("ALLDATA")}}>Reset Select</button>
+                    const selValues = Array.prototype.map.call(e.target.selectedOptions, function(x){ return x.value })
+                    onSelectCity(selValues)}}>{options}</select>
+          <button onClick = {(e)=>{onSelectCity([])}}>Reset Select</button>
     </div>
   )
 }
