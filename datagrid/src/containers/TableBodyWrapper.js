@@ -6,7 +6,8 @@ function mapStateToProps(state) {
         data: state.data,
         page: state.page,
         filter: state.filter,
-        select: state.select
+        select: state.select,
+        visibility_column: state.visibility_column
     };
 }
 

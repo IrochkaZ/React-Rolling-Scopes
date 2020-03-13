@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import './style.css';
 
 export default function Pagination(props) {
-    console.log(props);
     const pagination = [];
     const {data, onSetPage, filter} = props;
     const filtredSearch = filter.toLowerCase().charAt(0).toUpperCase() + filter.slice(1);

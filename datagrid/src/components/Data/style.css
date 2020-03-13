@@ -1,3 +1,9 @@
 .data .rapper {
     text-align: center;
 }
+
+.custom_tools {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

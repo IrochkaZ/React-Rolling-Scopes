@@ -2,5 +2,14 @@
   "data": [],
   "filter": "ALLDATA",
   "page": 1,
-  "select": []
+  "select": [],
+  "visibility_column" :{
+    "id": true,
+    "firstName": true,
+    "lastName": true,
+    "email" : true,
+    "phone" : true,
+    "address":true,
+    "description": true
+  }
 }

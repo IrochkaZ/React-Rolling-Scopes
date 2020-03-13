@@ -5,7 +5,8 @@ import {setDataSort} from "../actions";
 
 function mapStateToProps(state) {
     return {
-        data: state.data
+        data: state.data,
+        visibility_column: state.visibility_column,
     };
 }
 

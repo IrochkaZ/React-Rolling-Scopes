@@ -2,13 +2,14 @@ import React from 'react';
 import './style.css';
 
 export default function TableHead(props) {
-    const {data, onSetDataSort} = props;
+    const {data, onSetDataSort, visibility_column} = props;
 
     return (
         <thead>
         <tr>
             {(data.length > 0)
                 ? Object.keys(data[0]).map((key, index) => <th
+                       
                         data-sort="dec"
                         key={index}
                         onClick={e => {
@@ -53,7 +54,9 @@ export default function TableHead(props) {
                                     return 0;
                                 }))
                             }
-                        }}>{key} ⮮</th>)
+                        }}
+                        style= {(visibility_column[key] === false)? {display: 'none'}: {display:''}}
+                        >{key} ⮮</th>)
                 : null}
         </tr>
         </thead>

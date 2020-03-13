@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 
 import SelectCity from '../components/SelectCity';
 import { selectCity } from '../actions/';
-// import { setFilter } from '../actions/';
 
 
 function mapStateToProps(state) {
@@ -15,7 +14,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
      onSelectCity: select => dispatch(selectCity(select))
-
   }
 
 }

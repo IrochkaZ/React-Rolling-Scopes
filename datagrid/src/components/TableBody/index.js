@@ -5,25 +5,26 @@ import Portal from "../Portal";
 import { strCut } from '../../utils/utils'
 
 export default function TableBody(props) {
-    const {data, page, filter, select} = props;
-    const filtrSearch = filter.toLowerCase().charAt(0).toUpperCase() + filter.slice(1);
+    const { data, page, filter, select, visibility_column } = props;
+    const filtrSearch = filter.toLowerCase().charAt(0).toUpperCase() + filter.slice(1);   
 
+   
     const setData = (datas) => {
         return datas.map((data, index) => {
             return ((index < 30 * page && index > 30 * page - 30) 
             ? <tr key={data.phone}>
-                <td>{data.id}</td>
-                <td>{data.firstName}</td>
-                <td>{strCut(data.lastName)}</td>
-                <td>{data.email}</td>
-                <td>{data.phone}</td>
-                <td>
+                <td style={(visibility_column.id === false)? {display:'none'}: {display:''}}>{data.id}</td>
+                <td style={(visibility_column.firstName === false)? {display:'none'}: {display:''}}>{data.firstName}</td>
+                <td style={(visibility_column.lastName === false)? {display:'none'}: {display:''}}>{strCut(data.lastName)}</td>
+                <td style={(visibility_column.email === false)? {display:'none'}: {display:''}}>{data.email}</td>
+                <td style={(visibility_column.phone === false)? {display:'none'}: {display:''}}>{data.phone}</td>
+                <td style={(visibility_column.address === false)? {display:'none'}: {display:''}}>
                     <b>city:</b> {data.address.city} <br/>
                     <b>state:</b> {data.address.state} <br/>
                     <b>street address:</b> {data.address.streetAddress} <br/>
                     <b>zip:</b> {data.address.zip}
                 </td>
-                <td>{data.description}</td>
+                <td style={(visibility_column.description === false)? {display:'none'}: {display:''}}>{data.description}</td>
             </tr> : null )
             });
     }

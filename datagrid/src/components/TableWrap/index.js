@@ -9,7 +9,7 @@ import PaginationWrapper from "../../containers/PaginationWrapper";
 export default function TableWrap() {
     return (
         <div>
-            <Table  className= "responsive-table table" striped bordered hover responsive>
+            <Table id="dataTable" className= "responsive-table table" striped bordered hover responsive>
                 <TableHeadWrapper/>
                 <TableBodyWrapper/>
             </Table>
