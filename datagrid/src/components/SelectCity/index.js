@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import './style.css';
 
 
@@ -15,7 +16,7 @@ export default function SelectCity (props) {
                     e.preventDefault();
                     const selValues = Array.prototype.map.call(e.target.selectedOptions, function(x){ return x.value })
                     onSelectCity(selValues)}}>{options}</select>
-          <button onClick = {(e)=>{onSelectCity([])}}>Reset Select</button>
+          <Button variant="primary" onClick = {(e)=>{onSelectCity([])}}>Reset Select </Button>
     </div>
   )
 }

@@ -1,3 +1,57 @@
+#dataTable {
+    display: flex;
+    flex-flow:column;
+    overflow-y: auto;
+    max-height: 580px;
+}
+#dataTable thead{
+    position: fixed;
+    display: flex;
+    width: 99%;
+}
+
+#dataTable tbody{
+    display: flex;
+    width: 100%;
+    flex-flow: column;
+    margin: 50px 0 0 0;
+}
+
+#dataTable tr {
+    display: flex;
+    width: 100%;
+}
+
+#dataTable thead > th {
+    position: fixed;
+}
+
+#dataTable  tr > th:first-child, #dataTable  tr > td:first-child  {
+    width: 3%;
+}
+
+#dataTable  tr > th:nth-child(2), #dataTable  tr > td:nth-child(2),
+#dataTable  tr > th:nth-child(3), #dataTable  tr > td:nth-child(3),
+#dataTable  tr > th:nth-child(4), #dataTable  tr > td:nth-child(4),
+#dataTable  tr > th:nth-child(5), #dataTable  tr > td:nth-child(5){
+    width: 10%;
+}
+
+#dataTable tr > th:nth-child(6), #dataTable tr > td:nth-child(6) {
+    width: 15%;
+}
+
+#dataTable tr > th:last-child, #dataTable tr > td:last-child  {
+    width: 42%;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+
+
+
+
 .wrapper .pagination {
     padding: 40px 0;
     height: 40px;
@@ -24,8 +78,8 @@
 }
 
 tr, td {
-    padding: 7px 15px;
+    /*padding: 7px 15px;*/
     margin: 0;
-    border: 1px solid #333;
+    /*border: 1px solid #333;*/
     text-align: center;
 }

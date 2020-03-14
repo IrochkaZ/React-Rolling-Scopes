@@ -14,13 +14,11 @@ export default function VisibilityColumn (props){
 
 const checkedItem = Object.keys(visibility_column).map(item=>{
   return(
-    <div key={item}>
+    <div key={item} className ="checkbox">
     <input type="checkbox" id="scales" name={item} 
     defaultChecked={visibility_column[item]}
-    onChange ={toggleCheckboxChange}
-    
-    ></input>
-  <label htmlFor={item}>{item}</label>
+    onChange ={toggleCheckboxChange}></input>
+  <label className ="control control-checkbox" htmlFor={item}>{item}</label>
   </div>
   )
 });
