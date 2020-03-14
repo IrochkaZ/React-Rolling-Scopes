@@ -8,6 +8,7 @@ function mapStateToProps(state) {
         data: state.data,
         filter: state.filter,
         select: state.select,
+        row_select: state.row_select
     }
 }
 

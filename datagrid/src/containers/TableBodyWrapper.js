@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import TableBody from "../components/TableBody";
+import {selectRowsToDelete} from '../actions';
 
 function mapStateToProps(state) {
     return {
@@ -7,11 +8,19 @@ function mapStateToProps(state) {
         page: state.page,
         filter: state.filter,
         select: state.select,
-        visibility_column: state.visibility_column
+        visibility_column: state.visibility_column,
+        rowselect: state.rowselect
     };
 }
 
+function mapDispatchToProps(dispatch) {
+    return {
+       onSelectRowToDelete: rowselect => dispatch(selectRowsToDelete(rowselect))
+    }
+  
+  }
 
-const TableBodyWrapper = connect(mapStateToProps)(TableBody);
+
+const TableBodyWrapper = connect(mapStateToProps, mapDispatchToProps)(TableBody);
 
 export default TableBodyWrapper;

@@ -11,5 +11,6 @@
     "phone" : true,
     "address":true,
     "description": true
-  }
+  },
+  "rowselect": {}
 }
