@@ -5,7 +5,8 @@ import Portal from "../Portal";
 import { strCut } from '../../utils/utils'
 
 export default function TableBody(props) {
-    const { data, page, filter, select, visibility_column, rowselect,onSelectRowToDelete  } = props;
+    const { data, page, filter, select, visibility_column, rowselect, rowdelete, onSelectRowToDelete  } = props;
+    console.log(props);
     const filtrSearch = filter.toLowerCase().charAt(0).toUpperCase() + filter.slice(1);   
 
 
@@ -16,16 +17,13 @@ export default function TableBody(props) {
             return ((index < 30 * page && index > 30 * page - 30) 
             ? <tr key={data.phone} attribute={data.phone}>
             <td style={hideShowCol('id')}> <input type="checkbox" 
-            onChange={(e) => {
-                console.dir(e.target.checked);
+            onClick={ (e) => {
                 const newSelRow = Object.assign({}, rowselect);
                 const elId = e.target.parentElement.parentElement.getAttribute("attribute");
                 (e.target.checked) ? newSelRow[elId] = elId : delete newSelRow[elId];
-                // newSelRow[elId] = elId;
                 onSelectRowToDelete(newSelRow);
-              //console.log(e.target.parentElement.parentElement.getAttribute("attribute"))
-            }
-               }></input>{data.id}</td>
+            } 
+               } ></input>{data.id}</td>
                 <td style={hideShowCol('firstName')}>{data.firstName}</td>
                 <td style={hideShowCol('lastName')}>{strCut(data.lastName)}</td>
                 <td style={hideShowCol('email')}>{data.email}</td>
@@ -41,7 +39,7 @@ export default function TableBody(props) {
             });
     }
 
-    const dataPrepare = (datas, sel) => {
+    const dataPrepare = (datas, sel, todel) => {
         let dataOutput = datas;
 
         if(datas.length > 0 && filter !=='ALLDATA') {
@@ -51,12 +49,20 @@ export default function TableBody(props) {
        if(datas.length > 0 && sel.length > 0) {
             dataOutput = dataOutput.filter((item) => sel.includes(item.address.state));
         }
-        return setData(dataOutput)
+
+        if(datas.length > 0 && Object.values(todel).length > 0) {
+            dataOutput = dataOutput.filter((item) => {
+                console.log(dataOutput.phone === item);
+                return !Object.values(todel).includes(item.phone);
+            });
+        }
+        console.log(dataOutput);
+        return setData(dataOutput);
     }
 
     return (
         < tbody>
-        {(data.length > 0) ? dataPrepare(data, select)
+        {(data.length > 0) ? dataPrepare(data, select, rowdelete)
             : ReactDOM.createPortal(<Portal/>, document.getElementById('portal'))
         }
         </tbody>

@@ -12,5 +12,6 @@
     "address":true,
     "description": true
   },
-  "rowselect": {}
+  "rowselect": {},
+  "rowdelete":{}
 }

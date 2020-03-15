@@ -9,7 +9,8 @@ function mapStateToProps(state) {
         filter: state.filter,
         select: state.select,
         visibility_column: state.visibility_column,
-        rowselect: state.rowselect
+        rowselect: state.rowselect,
+        rowdelete: state.rowdelete
     };
 }
 

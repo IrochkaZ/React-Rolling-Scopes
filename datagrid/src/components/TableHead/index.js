@@ -1,10 +1,10 @@
 import React from 'react';
 import './style.css';
-
 export default function TableHead(props) {
     const {data, onSetDataSort, visibility_column} = props;
 
     return (
+
         <thead>
         <tr>
             {(data.length > 0)
