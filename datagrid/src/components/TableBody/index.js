@@ -5,8 +5,10 @@ import Portal from "../Portal";
 import { strCut } from '../../utils/utils'
 import { Tooltip } from '@material-ui/core';
 
+
 export default function TableBody(props) {
-    const { data, page, filter, select, visibility_column, rowselect, rowdelete, onSelectRowToDelete  } = props;
+    const { data, page, filter, select, visibility_column, rowselect, rowdelete, onSelectRowToDelete} = props;
+    console.log(props);
     const filtrSearch = filter.toLowerCase().charAt(0).toUpperCase() + filter.slice(1);   
 
 
@@ -53,7 +55,6 @@ export default function TableBody(props) {
 
        if(datas.length > 0 && sel.length > 0) {
             dataOutput = dataOutput.filter((item) => sel.includes(item.address.state));
-            console.log(dataOutput);
         }
 
         if(datas.length > 0 && Object.values(todel).length > 0) {
@@ -63,6 +64,8 @@ export default function TableBody(props) {
         }
         return setData(dataOutput);
     }
+
+   
     return (
         < tbody>
         {(data.length > 0) ? dataPrepare(data, select, rowdelete)

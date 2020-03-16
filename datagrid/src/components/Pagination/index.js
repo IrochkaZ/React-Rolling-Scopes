@@ -6,7 +6,6 @@ export default function Pagination(props) {
     let pagination=[];
     const {data, onSetPage, filter, select, rowdelete} = props;
     const filtredSearch = filter.toLowerCase().charAt(0).toUpperCase() + filter.slice(1);
-
     if (data.length > 0) {
         if (filter === 'ALLDATA' && select.length === 0 ) {
             let length = data.length / 30;
@@ -14,32 +13,33 @@ export default function Pagination(props) {
                 pagination.push(Math.ceil(i));
             }
         } 
-        if (filter !== 'ALLDATA') {
+         if (filter !== 'ALLDATA') {
             let length = data.filter(obj => obj.id.toString() === filter || obj.id.toString().indexOf(filtredSearch) !== -1 || obj.firstName === filter || obj.firstName.indexOf(filtredSearch) !== -1 || obj.lastName === filter || obj.lastName.indexOf(filtredSearch) !== -1 || obj.email === filter || obj.email.indexOf(filtredSearch) !== -1 || obj.phone === filter || obj.phone.indexOf(filtredSearch) !== -1 || obj.address.streetAddress === filter || obj.address.streetAddress.indexOf(filtredSearch) !== -1 || obj.address.city === filter || obj.address.city.indexOf(filtredSearch) !== -1 || obj.address.state === filter || obj.address.state.indexOf(filtredSearch) !== -1 || obj.address.zip === filter || obj.address.zip.indexOf(filtredSearch) !== -1 || obj.description === filter || obj.description.indexOf(filtredSearch) !== -1).length / 30;
             for (let i = 1; i <= Math.ceil(length); i++) {
                 pagination.push(i);
             }
         } 
-        if(select.length !== 0 ){
+       /* if(select.length !== 0 ){
             let length = data.filter((obj) => select.includes(obj.address.state)).length/30;
                 for (let i = 1; i <= Math.ceil(length); i++) {
                 pagination.push(i);
                 }
             }
-        if(Object.values(rowdelete).length > 0 && filter !== 'ALLDATA') {
+        if(Object.values(rowdelete).length > 0 && data.length > 0) {
                let length = data.filter((item) => !Object.values(rowdelete).includes(item.phone)).length/30;
                for (let i = 1; i <= Math.ceil(length); i++) {
                 pagination.push(i);
-        }
-    }
+                }  
+            }*/
         
 
     }
     return (
         <div className="pagination">
-            {pagination.map(page => <NavLink activeStyle={{
-                fontWeight: "bold",
-                color: "red"}} 
+            {pagination.map(page => <NavLink
+            // activeStyle={{
+            //                                     fontWeight: "bold",
+            //                                     color: "red"}}
                                   key={page} to={`/table_data:${page}`}
                                         className={'link-to-table'}
                                         onClick={(e) => {

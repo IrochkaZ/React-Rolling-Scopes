@@ -10,13 +10,14 @@ function mapStateToProps(state) {
         select: state.select,
         visibility_column: state.visibility_column,
         rowselect: state.rowselect,
-        rowdelete: state.rowdelete
+        rowdelete: state.rowdelete,
+        filterCSV: state.filterCSV
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-       onSelectRowToDelete: rowselect => dispatch(selectRowsToDelete(rowselect))
+       onSelectRowToDelete: rowselect => dispatch(selectRowsToDelete(rowselect)),
     }
   
   }

@@ -7,7 +7,8 @@ import select from './select';
 import visibility_column from './visibility_column';
 import rowselect from './rowselect';
 import rowdelete from './rowdelete';
+import filterCSV from './filterCSV';
 
-const reducer = combineReducers({data,filter,page, select, visibility_column, rowselect, rowdelete});
+const reducer = combineReducers({data,filter,page, select, visibility_column, rowselect, rowdelete, filterCSV});
 
 export default reducer;
