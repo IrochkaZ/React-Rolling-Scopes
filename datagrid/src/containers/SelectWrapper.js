@@ -8,7 +8,8 @@ function mapStateToProps(state) {
   return {
       data: state.data,
       filter: state.filter,
-      select: state.select
+      select: state.select,
+      page: state.page
   }
 }
 function mapDispatchToProps(dispatch) {

@@ -27,7 +27,7 @@
 }
 
 #dataTable  tr > th:first-child, #dataTable  tr > td:first-child  {
-    width: 3%;
+    width: 4%;
 }
 
 #dataTable  tr > th:nth-child(2), #dataTable  tr > td:nth-child(2),

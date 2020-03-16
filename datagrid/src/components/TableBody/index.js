@@ -3,10 +3,10 @@ import ReactDOM from "react-dom";
 import './style.css';
 import Portal from "../Portal";
 import { strCut } from '../../utils/utils'
+import { Tooltip } from '@material-ui/core';
 
 export default function TableBody(props) {
     const { data, page, filter, select, visibility_column, rowselect, rowdelete, onSelectRowToDelete  } = props;
-    console.log(props);
     const filtrSearch = filter.toLowerCase().charAt(0).toUpperCase() + filter.slice(1);   
 
 
@@ -16,14 +16,19 @@ export default function TableBody(props) {
         return datas.map((data, index) => {
             return ((index < 30 * page && index > 30 * page - 30) 
             ? <tr key={data.phone} attribute={data.phone}>
-            <td style={hideShowCol('id')}> <input type="checkbox" 
+            <td style={hideShowCol('id')}>  
+            <Tooltip interactive placement="top" title ="Select row to delete">
+                <input type="checkbox" 
             onClick={ (e) => {
                 const newSelRow = Object.assign({}, rowselect);
                 const elId = e.target.parentElement.parentElement.getAttribute("attribute");
                 (e.target.checked) ? newSelRow[elId] = elId : delete newSelRow[elId];
                 onSelectRowToDelete(newSelRow);
             } 
-               } ></input>{data.id}</td>
+               } ></input>
+               </Tooltip>
+            {data.id}
+            </td>
                 <td style={hideShowCol('firstName')}>{data.firstName}</td>
                 <td style={hideShowCol('lastName')}>{strCut(data.lastName)}</td>
                 <td style={hideShowCol('email')}>{data.email}</td>
@@ -48,15 +53,14 @@ export default function TableBody(props) {
 
        if(datas.length > 0 && sel.length > 0) {
             dataOutput = dataOutput.filter((item) => sel.includes(item.address.state));
+            console.log(dataOutput);
         }
 
         if(datas.length > 0 && Object.values(todel).length > 0) {
             dataOutput = dataOutput.filter((item) => {
-                console.log(dataOutput.phone === item);
                 return !Object.values(todel).includes(item.phone);
             });
         }
-        console.log(dataOutput);
         return setData(dataOutput);
     }
 

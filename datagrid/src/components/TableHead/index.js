@@ -16,7 +16,7 @@ export default function TableHead(props) {
                             let key = e.target.childNodes[0].data;
 
                             if (e.target.dataset.sort === 'dec') {
-                                e.target.childNodes[1].data = '⮬';
+                                e.target.childNodes[1].data = '▲';
                                 e.target.dataset.sort = "inc";
 
                                 onSetDataSort(data.slice(0).sort((a, b) => {
@@ -35,7 +35,7 @@ export default function TableHead(props) {
                                     return 0;
                                 }))
                             } else {
-                                e.target.childNodes[1].data = '⮮';
+                                e.target.childNodes[1].data = '▼';
                                 e.target.dataset.sort = "dec";
 
                                 onSetDataSort(data.slice(0).sort((a, b) => {
@@ -56,7 +56,7 @@ export default function TableHead(props) {
                             }
                         }}
                         style= {(visibility_column[key] === false)? {display: 'none'}: {display:''}}
-                        >{key} ⮮</th>)
+                        >{key} ▼</th>)
                 : null}
         </tr>
         </thead>

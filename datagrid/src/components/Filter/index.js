@@ -1,4 +1,5 @@
 import React from 'react';
+import TextField from '@material-ui/core/TextField';
 import './style.css';
 
 export default function Filter(props) {
@@ -7,9 +8,12 @@ export default function Filter(props) {
         <div className="filter">
             <label>
             <h3>Search the site: </h3>
-                <input type="text" className="search-field" onChange={(e) => {
-                    e.preventDefault();
-                    onChangeFilter(e.target.value || 'ALLDATA');
+                <TextField  label="Search input"
+                margin="normal"
+                variant="outlined"
+                type="text" className="search-field" onChange={(e) => {
+                e.preventDefault();
+                onChangeFilter(e.target.value || 'ALLDATA');
                 }}/>
             </label>
         </div>

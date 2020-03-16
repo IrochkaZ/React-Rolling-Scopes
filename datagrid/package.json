@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://www.filltext.com",
   "dependencies": {
+    "@material-ui/core": "^4.9.5",
     "bootstrap": "^4.4.1",
     "create-react-class": "^15.6.3",
     "mdbootstrap": "^4.14.0",

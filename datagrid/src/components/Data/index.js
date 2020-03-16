@@ -1,5 +1,5 @@
 import React from 'react';
-import "./style.css"
+import "./style.css";
 import FilterWrapper from "../../containers/FilterWrapper";
 import TableWrapper from "../../containers/TableWrapper";
 import SelectWrapper from '../../containers/SelectWrapper';
@@ -21,3 +21,6 @@ export default function Data() {
         </div>
     )
 }
+
+
+     
