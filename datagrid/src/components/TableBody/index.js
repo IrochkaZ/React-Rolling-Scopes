@@ -63,7 +63,6 @@ export default function TableBody(props) {
         }
         return setData(dataOutput);
     }
-
     return (
         < tbody>
         {(data.length > 0) ? dataPrepare(data, select, rowdelete)

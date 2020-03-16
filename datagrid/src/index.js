@@ -8,6 +8,7 @@ import Data from './components/Data';
 import store from './store/configureStore';
 import AppWrapper from "./containers/AppWrapper";
 
+
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>

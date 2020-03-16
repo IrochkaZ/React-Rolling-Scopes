@@ -7,7 +7,6 @@ export default function Filter(props) {
     return (
         <div className="filter">
             <label>
-            <h3>Search the site: </h3>
                 <TextField  label="Search input"
                 margin="normal"
                 variant="outlined"
