@@ -4,11 +4,11 @@ import './style.css';
 
 export default function Pagination(props) {
     let pagination=[];
-    const {data, onSetPage, filter, select} = props;
+    const {data, onSetPage, filter, select, rowdelete} = props;
     const filtredSearch = filter.toLowerCase().charAt(0).toUpperCase() + filter.slice(1);
 
     if (data.length > 0) {
-        if (filter === 'ALLDATA' && select.length == 0 ) {
+        if (filter === 'ALLDATA' && select.length === 0 && Object.values(rowdelete).length === 0 ) {
             let length = data.length / 30;
             for (let i = 1; i <= Math.ceil(length); i++) {
                 pagination.push(Math.ceil(i));
@@ -26,6 +26,12 @@ export default function Pagination(props) {
                 pagination.push(i);
                 }
             }
+        if(Object.values(rowdelete).length > 0) {
+               let length = data.filter((item) => !Object.values(rowdelete).includes(item.phone)).length/30;
+               for (let i = 1; i <= Math.ceil(length); i++) {
+                pagination.push(i);
+        }
+    }
         
 
     }
