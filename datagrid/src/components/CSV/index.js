@@ -4,7 +4,6 @@ import CsvDownload from 'react-json-to-csv'
 
 export default function CSV(props){
   const {data, filter, select, rowdelete} = props;
-  // const data = localStorage.getItem('state') ? JSON.parse(localStorage.getItem('state')) : null;
   const filtrSearch = filter.toLowerCase().charAt(0).toUpperCase() + filter.slice(1);
   
   const dataPrepare = (datas, sel, todel) => {
@@ -29,7 +28,7 @@ export default function CSV(props){
   return(
     <CsvDownload 
     data={dataPrepare(data, select, rowdelete)}
-    filename={`data_${+ new Date()}.csv`}
+    filename={`data_${new Date().toDateString()}.csv`}
     style={{ //pass other props, like styles
       boxShadow:"inset 0px 1px 0px 0px #e184f3",
       background:"linear-gradient(to bottom, #c123de 5%, #a20dbd 100%)",

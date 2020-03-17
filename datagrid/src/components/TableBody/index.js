@@ -8,7 +8,6 @@ import { Tooltip } from '@material-ui/core';
 
 export default function TableBody(props) {
     const { data, page, filter, select, visibility_column, rowselect, rowdelete, onSelectRowToDelete} = props;
-    console.log(props);
     const filtrSearch = filter.toLowerCase().charAt(0).toUpperCase() + filter.slice(1);   
 
 

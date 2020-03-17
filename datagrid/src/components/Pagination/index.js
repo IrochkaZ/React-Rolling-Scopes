@@ -3,37 +3,28 @@ import { NavLink } from 'react-router-dom';
 import './style.css';
 
 export default function Pagination(props) {
-    let pagination=[];
     const {data, onSetPage, filter, select, rowdelete} = props;
-    const filtredSearch = filter.toLowerCase().charAt(0).toUpperCase() + filter.slice(1);
-    if (data.length > 0) {
-        if (filter === 'ALLDATA' && select.length === 0 ) {
-            let length = data.length / 30;
-            for (let i = 1; i <= Math.ceil(length); i++) {
-                pagination.push(Math.ceil(i));
-            }
-        } 
-         if (filter !== 'ALLDATA') {
-            let length = data.filter(obj => obj.id.toString() === filter || obj.id.toString().indexOf(filtredSearch) !== -1 || obj.firstName === filter || obj.firstName.indexOf(filtredSearch) !== -1 || obj.lastName === filter || obj.lastName.indexOf(filtredSearch) !== -1 || obj.email === filter || obj.email.indexOf(filtredSearch) !== -1 || obj.phone === filter || obj.phone.indexOf(filtredSearch) !== -1 || obj.address.streetAddress === filter || obj.address.streetAddress.indexOf(filtredSearch) !== -1 || obj.address.city === filter || obj.address.city.indexOf(filtredSearch) !== -1 || obj.address.state === filter || obj.address.state.indexOf(filtredSearch) !== -1 || obj.address.zip === filter || obj.address.zip.indexOf(filtredSearch) !== -1 || obj.description === filter || obj.description.indexOf(filtredSearch) !== -1).length / 30;
-            for (let i = 1; i <= Math.ceil(length); i++) {
-                pagination.push(i);
-            }
-        } 
-       /* if(select.length !== 0 ){
-            let length = data.filter((obj) => select.includes(obj.address.state)).length/30;
-                for (let i = 1; i <= Math.ceil(length); i++) {
-                pagination.push(i);
-                }
-            }
-        if(Object.values(rowdelete).length > 0 && data.length > 0) {
-               let length = data.filter((item) => !Object.values(rowdelete).includes(item.phone)).length/30;
-               for (let i = 1; i <= Math.ceil(length); i++) {
-                pagination.push(i);
-                }  
-            }*/
-        
-
-    }
+    const filtrSearch = filter.toLowerCase().charAt(0).toUpperCase() + filter.slice(1);
+    const dataPrepare = (datas, sel, todel) => {
+      let dataOutput = datas;
+      if(datas.length > 0 && filter !=='ALLDATA') {
+          dataOutput = dataOutput.filter(data => data.id.toString().toLowerCase() === filter.toLowerCase() || data.firstName.toLowerCase() === filter.toLowerCase() || data.firstName.indexOf(filtrSearch.toLowerCase()) !== -1 || data.lastName.toLowerCase() === filter.toLowerCase() || data.lastName.indexOf(filtrSearch.toLowerCase()) !== -1 || data.email.toLowerCase() === filter.toLowerCase() || data.email.indexOf(filtrSearch.toLowerCase()) !== -1 || data.phone.toLowerCase() === filter.toLowerCase() || data.phone.indexOf(filtrSearch.toLowerCase()) !== -1 || data.address.streetAddress.toLowerCase() === filter.toLowerCase() || data.address.streetAddress.indexOf(filtrSearch.toLowerCase()) !== -1 || data.address.city.toLowerCase() === filter.toLowerCase() || data.address.city.indexOf(filtrSearch.toLowerCase()) !== -1 || data.address.state.toLowerCase() === filter.toLowerCase() || data.address.state.indexOf(filtrSearch.toLowerCase()) !== -1 || data.address.zip.toLowerCase() === filter.toLowerCase() || data.address.zip.indexOf(filtrSearch.toLowerCase()) !== -1 || data.description.toLowerCase() === filter.toLowerCase() || data.description.indexOf(filtrSearch.toLowerCase()) !== -1)
+      }
+     if(datas.length > 0 && sel.length > 0) {
+          dataOutput = dataOutput.filter((item) => sel.includes(item.address.state));
+      }
+      if(datas.length > 0 && Object.values(todel).length > 0) {
+          dataOutput = dataOutput.filter((item) => {
+              return !Object.values(todel).includes(item.phone);
+          });
+      }
+      return dataOutput;
+  }
+  let pagination=[];
+  let length = dataPrepare(data, select, rowdelete).length/30;
+     for (let i = 1; i <= Math.ceil(length); i++) {
+           pagination.push(i);
+         }
     return (
         <div className="pagination">
             {pagination.map(page => <NavLink

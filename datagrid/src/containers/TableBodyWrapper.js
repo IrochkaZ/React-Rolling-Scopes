@@ -11,7 +11,6 @@ function mapStateToProps(state) {
         visibility_column: state.visibility_column,
         rowselect: state.rowselect,
         rowdelete: state.rowdelete,
-        filterCSV: state.filterCSV
     };
 }
 

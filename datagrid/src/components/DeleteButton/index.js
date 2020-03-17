@@ -11,6 +11,7 @@ export default function DeleteButton (props){
    }
   return(
     <div className='delete_row_button'>
+      <div> Delete {Object.keys(rowdelete).length} row(s) in table</div>
       <Tooltip interactive placement="top" title ="Delete selected rows"><Button variant="danger" onClick = {onClickEvent}>&#128465;</Button></Tooltip>
     </div>
   )
