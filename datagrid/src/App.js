@@ -18,7 +18,7 @@ function App(props) {
                     Table with Data
                 </NavLink>
             <p>
-                  <a target="_blank" href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/datagrid.md">The task</a>
+                  <a target="blank" href="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/datagrid.md">The task</a>
             </p>
         </div>
         </div>)
