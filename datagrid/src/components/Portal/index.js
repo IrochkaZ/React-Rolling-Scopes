@@ -1,13 +1,13 @@
 import React from 'react';
 
 import './style.css';
-import Loader from '../Loader/Loader.js';
+import Spinner from '../Spinner/Spinner.js';
 
 export default function Portal() {
 
     return (
         <div className="preloader">
-            <Loader />
+            <Spinner />
         </div>
     );
 }
