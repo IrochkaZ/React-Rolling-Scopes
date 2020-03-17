@@ -7,3 +7,10 @@
     flex-direction: row;
     justify-content: space-around;
 }
+
+.buttons_tools{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}

@@ -11,13 +11,15 @@ export default function Data() {
     return (
         <div className='table'>
             <div className = "custom_tools" >
+             <div className ="buttons_tools">
+                <DeleteButtonWrapper />
                 <CSVWrapper />
+            </div>
                 <FilterWrapper/>
                 <SelectWrapper/>
                 <VisibilityColumnWrapper/>
             </div>
             <div className="wrapper">
-                <DeleteButtonWrapper />
                 <TableWrapper/>
             </div>
         </div>

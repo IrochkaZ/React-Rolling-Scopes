@@ -6,3 +6,7 @@
 .selected{
     color: coral;
 }
+
+.link-to-table :hover{
+  color: red;
+}

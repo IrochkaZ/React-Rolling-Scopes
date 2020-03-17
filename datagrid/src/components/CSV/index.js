@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.css';
+import "./style.css";
 import CsvDownload from 'react-json-to-csv'
 
 export default function CSV(props){
@@ -26,25 +26,27 @@ export default function CSV(props){
 }
 
   return(
-    <CsvDownload 
+    <div className ="scvWrapper">
+    <CsvDownload className ="scv"
     data={dataPrepare(data, select, rowdelete)}
     filename={`data_${new Date().toDateString()}.csv`}
-    style={{ //pass other props, like styles
-      boxShadow:"inset 0px 1px 0px 0px #e184f3",
-      background:"linear-gradient(to bottom, #c123de 5%, #a20dbd 100%)",
-      backgroundColor:"#c123de",
+    style={{ 
+      boxShadow:"inset 0px 1px 0px 0px #2fded4",
+      background:"linear-gradient(to bottom, #00b8ae 5%, #0f756f 100%)",
+      backgroundColor:"#00b8ae",
       borderRadius:"6px",
-      border:"1px solid #a511c0",
+      border:"1px solid #0f756f",
       display:"inline-block",
       cursor:"pointer","color":"#ffffff",
       fontSize:"15px",
       fontWeight:"bold",
       padding:"6px 24px",
       textDecoration:"none",
-      textShadow:"0px 1px 0px #9b14b3"
+      textShadow:"0px 1px 0px #0f756f"
       }}
   >
-    to CSV
+    ⬇   export to CSV
   </CsvDownload>
+  </div>
   )
 }

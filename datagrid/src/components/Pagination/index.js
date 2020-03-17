@@ -28,9 +28,6 @@ export default function Pagination(props) {
     return (
         <div className="pagination">
             {pagination.map(page => <NavLink
-            // activeStyle={{
-            //                                     fontWeight: "bold",
-            //                                     color: "red"}}
                                   key={page} to={`/table_data:${page}`}
                                         className={'link-to-table'}
                                         onClick={(e) => {

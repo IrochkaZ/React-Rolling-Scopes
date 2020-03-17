@@ -21,3 +21,8 @@ body {
 .App .link-to-table:last-child {
     float: right;
 }
+
+.links.clearfix {
+    text-align: center;
+    font-size: 40px;
+}

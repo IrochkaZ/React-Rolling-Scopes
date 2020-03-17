@@ -16,7 +16,7 @@ export default function SelectCity (props) {
                     e.preventDefault();
                     const selValues = Array.prototype.map.call(e.target.selectedOptions, function(x){ return x.value })
                     onSelectCity(selValues)}}>{options}</select>
-          <Button variant="primary" onClick = {(e)=>{onSelectCity([])}}>Reset Select </Button>
+          <Button variant="primary" className ="select_button" onClick = {(e)=>{onSelectCity([])}}>Reset Select </Button>
     </div>
   )
 }

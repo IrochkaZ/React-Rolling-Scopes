@@ -55,4 +55,10 @@
   outline: rgb(59, 153, 252) auto 5px;
 }
 
+.visibility_column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 
